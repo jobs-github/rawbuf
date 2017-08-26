@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{8accde16-a3a7-4e80-a767-cc04f6511eda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d5e3a7cc-1b9b-4c36-bf1c-cf0f5e75c6f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\include\rawbuf.c">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\rawbuf_utils.c">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\perf_test.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sample_test.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\rawbuf.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\rawbuf_utils.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\perf_test.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sample_test.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
