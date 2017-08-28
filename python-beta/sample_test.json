@@ -1,0 +1,22 @@
+{
+    "structs": [
+        {
+            "type": "sample_struct_t",
+            "members": [
+                ["int8_t", "int8_val"],
+                ["uint8_t", "uint8_val"],
+                ["string", "str_val", "100"],
+                ["[string]", "str_arr_val"],
+                ["{string}", "str_dict_val"]
+            ]
+        },
+        {
+            "type": "sample_object_t",
+            "members": [
+                ["sample_struct_t", "obj"],
+                ["[sample_struct_t]", "arr"],
+                ["{sample_struct_t}", "dict"]
+            ]
+        }
+    ]
+}
