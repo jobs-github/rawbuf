@@ -42,13 +42,13 @@ Then, write a schema named `fxxx_gfw.json`:
 	            "type": "fxxx_gfw_t",
 	            "members": 
 	            [
-                    ["bool", "bool_val", "true"],
-                    ["int8_t", "int8_val", "'a'"],
-	                ["int32_t", "int32_val", "-111111"],
-	                ["uint64_t", "uint64_val", "0xffff"],
-	                ["double", "double_val", "111111.111111"],
-	                ["string", "str_val", "test"],
-	                ["[int32_t]", "vec_val"],
+	                ["bool", "bool_val", "100"],
+	                ["int8_t", "int8_val"],
+	                ["int32_t", "int32_val"],
+	                ["uint64_t", "uint64_val"],
+	                ["double", "double_val", "101"],
+	                ["string", "str_val"],
+	                ["[int32_t]", "vec_val", "110"],
 	                ["{string}", "dict_val"]
 	            ]
 	        }
