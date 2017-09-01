@@ -17,15 +17,17 @@ Please refer to [slothjson](https://github.com/jobs-github/slothjson) for more d
 
 ## Features ##
 
-Please refer to [slothjson](https://github.com/jobs-github/slothjson).  
-
-The advantage with `slothjson`:  
-
 * Efficient (4x faster than `slothjson`)  
+* Succinct interface for people (everything can be done with just a single line of code)
+* Simple, powerful code generator with full automation (not need to implement serialize/deserialize interfaces manually)
+* Support optional field (easy to serialize/deserialize field optionally)
+* Flexible schema (support array, dict, nested object and **nested array & dict**)
+* Succinct design (no tricky C++ template technology, easy to understand), reusable, extensible (easy to support new types)
+* Cross-Platform (Windows & Linux & OS X)
 
 ## Usage ##
 
-In the beginning, you need to add the following items to your project:
+Take C++ implement of rawbuf as an example. In the beginning, you need to add the following items to your project:
 
 * `rawbuf`: refer to `cpp/include/rawbuf.h` and `cpp/include/rawbuf.cpp`, the library of rawbuf
 
@@ -55,7 +57,7 @@ Then, write a schema named `fxxx_gfw.json`:
 
 Run command line:  
 
-    python cpp/generator/rawbuf.py -f src/fxxx_gfw.json
+    python cpp/generator/rawbuf.py -f cpp/src/fxxx_gfw.json
 
 It will generate `fxxx_gfw.h` and `fxxx_gfw.cpp`, which you need to add to your project.  
 Then you can code like this: 
@@ -64,11 +66,11 @@ Then you can code like this:
     // set the value of "obj_val"
     ......
     // output as instance of "rb_buf_t"
-	rb_buf_t rb_val = rawbuf::rb_create_buf(rawbuf::rb_sizeof(obj_val));
+	rawbuf::rb_buf_t rb_val = rawbuf::rb_create_buf(rawbuf::rb_sizeof(obj_val));
 	bool rc = rawbuf::rb_encode(obj_val, rb_val);
 	// use value of "rb_val"
 	......
-	rawbuf::rb_dispose_buf(rb_val);
+	rawbuf::rb_dispose_buf(rb_val); // do not forget!
     // output as file
     std::string path = "fxxx_gfw_t.bin";
     bool rc = rawbuf::rb_dump(obj_val, path);
@@ -78,12 +80,14 @@ If you don't want to serialize all fields, code like this:
     obj_val.skip_dict_val(); // call "skip_xxx"
 The same as deserialize:
 
-    // load from instance of "rb_buf_t"
-	rb_buf_t rb_val;
+	rawbuf::rb_buf_t rb_val = rawbuf::rb_create_buf(rawbuf::rb_sizeof(obj_val));
     // set the value of "rb_val"
     ......
+	// load from "rb_val"
     rawbuf::fxxx_gfw_t obj_val;
 	bool rc = rawbuf::rb_decode(rb_val, 0, obj_val);
+	......
+	rawbuf::rb_dispose_buf(rb_val); // do not forget!
 
     // load from file
 	std::string path = "fxxx_gfw_t.bin";
@@ -171,5 +175,5 @@ You can get all details from [here](https://github.com/jobs-github/slothjson) an
 ## More ##
 
 - Yet Another Schema - [YAS](https://github.com/jobs-github/yas)  
-- Sister - [slothjson](https://github.com/jobs-github/slothjson)  
+- Object Serialization Artifact For Lazy Man - [slothjson](https://github.com/jobs-github/slothjson)  
 - High-performance Distributed Storage - [huststore](https://github.com/Qihoo360/huststore)  
